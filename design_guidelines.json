@@ -1,0 +1,102 @@
+{
+  "project_info": {
+    "name": "Beyond The Blades (ASD Foundation)",
+    "domain": "Non-Profit, Autism Care, Sports & Activities",
+    "vibe": "Clean & modern; Warm & inviting",
+    "theme": "light",
+    "archetype": "Archetype 1 (Organic & Earthy) - Adapted for Soft Utility (Blue/White)"
+  },
+  "typography": {
+    "instructions": "Follow the 'Anti-Default Rule'. Use Outfit for distinctive, modern, and warm headings. Use Work Sans for highly readable body copy. Maintain tight letter spacing (tracking-tight) on large headings and loose line-height on paragraphs.",
+    "fonts": {
+      "headings": "Outfit, sans-serif",
+      "body": "Work Sans, sans-serif",
+      "accent": "Outfit, sans-serif"
+    },
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-slate-900",
+      "h3": "text-xl sm:text-2xl font-medium text-slate-800",
+      "body": "text-base leading-relaxed text-slate-600",
+      "small_label": "text-sm font-semibold tracking-[0.1em] uppercase text-blue-600"
+    }
+  },
+  "colors": {
+    "instructions": "Strictly adhere to the requested 'shades of blue and white'. Avoid pure black; use deep slate blue for high-contrast text. Use bright, inviting blues for CTAs and calm, airy blues for backgrounds.",
+    "palette": {
+      "background": "#FFFFFF",
+      "surface": "#F8FAFC",
+      "surface_alt": "#EFF6FF",
+      "primary": "#2563EB",
+      "primary_hover": "#1D4ED8",
+      "secondary": "#93C5FD",
+      "accent": "#60A5FA",
+      "text_main": "#0F172A",
+      "text_muted": "#475569",
+      "border": "#E2E8F0"
+    }
+  },
+  "spacing_and_layout": {
+    "instructions": "Utilize generous spacing (p-8, p-12, p-16) to create a breathable, 'warm and inviting' feel. Implement Bento grids for the Impact page to avoid boring layouts. Never center everything by default; use deliberate asymmetry.",
+    "containers": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "sections": "py-16 sm:py-24",
+    "bento_grid": "grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8",
+    "border_radius": "rounded-2xl md:rounded-3xl (Soft geometry to align with 'warm & inviting')"
+  },
+  "surfaces_and_shadows": {
+    "instructions": "Apply soft Neumorphism or Glassmorphism strategically. Cards should not feel rigid. Use 1px subtle borders combined with very soft ambient shadows.",
+    "cards": "bg-white rounded-2xl md:rounded-3xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)]",
+    "header_nav": "sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200/50",
+    "footer": "bg-slate-50 border-t border-slate-200 py-16"
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8 py-4 font-semibold transition-all hover:-translate-y-0.5 shadow-lg shadow-blue-500/25",
+      "secondary": "bg-blue-50 hover:bg-blue-100 text-blue-600 rounded-full px-8 py-4 font-semibold transition-all border border-blue-200"
+    },
+    "inputs": "rounded-xl border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all px-4 py-3",
+    "icons_library": "lucide-react (using soft, rounded icons where possible)",
+    "donate_footer_cta": "Must be prominently displayed at the bottom of every page. A sticky/fixed bottom approach or a large banner directly above the footer."
+  },
+  "motion": {
+    "instructions": "Use Framer Motion for smooth entrances and soft hover states to bring the UI to life without being distracting. Follow accessibility rules for reduced motion.",
+    "transitions": "transition-all duration-300 ease-out",
+    "hover_lift": "hover:-translate-y-1 hover:shadow-xl"
+  },
+  "media": {
+    "instructions": "Use these precise image URLs. Images MUST NOT exceed 80vh on mobile. Use soft rounded corners (rounded-3xl) for images. If placing text over images, use a soft gradient overlay (bg-gradient-to-t from-slate-900/60 to-transparent) to ensure APCA contrast.",
+    "image_urls": {
+      "hero_background": {
+        "url": "https://images.pexels.com/photos/34014280/pexels-photo-34014280.jpeg",
+        "description": "Abstract blue waves create a calming and modern design background, ideal for digital projects.",
+        "usage": "Hero section background with an overlay, or general page backgrounds."
+      },
+      "hero_hockey_kids": {
+        "url": "https://images.unsplash.com/photo-1706844587140-9c58f98b030c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTJ8MHwxfHNlYXJjaHwxfHxraWRzJTIwcGxheWluZyUyMGhvY2tleXxlbnwwfHx8fDE3NzcwMzIwMzB8MA&ixlib=rb-4.1.0&q=85",
+        "description": "a group of young children playing a game of ice hockey",
+        "usage": "Hero section prominent feature image or Main page intro."
+      },
+      "badminton_kids": {
+        "url": "https://images.pexels.com/photos/12969082/pexels-photo-12969082.jpeg",
+        "description": "Two boys enjoying a badminton game outdoors at sunset, capturing the fun and energy of sports.",
+        "usage": "Featured in 'Activities' section or 'Get Involved'."
+      },
+      "hiking_kids": {
+        "url": "https://images.unsplash.com/photo-1762376303818-04b067ce452d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwxfHxwZW9wbGUlMjBoaWtpbmclMjBzdW5ueSUyMG91dGRvb3JzfGVufDB8fHx8MTc3NzAzMjAzMHww&ixlib=rb-4.1.0&q=85",
+        "description": "Two hikers walk on a trail with trees.",
+        "usage": "Featured in 'Activities' section or 'Impact'."
+      },
+      "volunteers_community": {
+        "url": "https://images.unsplash.com/photo-1774557937549-8844e48e8b22?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTV8MHwxfHNlYXJjaHwyfHx2b2x1bnRlZXJzJTIwY29tbXVuaXR5JTIwc3BvcnRzfGVufDB8fHx8MTc3NzAzMjAzMHww&ixlib=rb-4.1.0&q=85",
+        "description": "Woman in blue offers items to runners at event.",
+        "usage": "About Us or Volunteer section."
+      }
+    }
+  },
+  "specific_requirements": {
+    "donate_button_global": "A 'Donate' CTA button MUST be present on the bottom of every page.",
+    "copyright_text": "Footer MUST include: '© 2026 Beyond The Blades | Non-Profit Organization'.",
+    "impact_quote": "Impact page MUST include the quote: 'Different, not less.' - Dr. Temple Grandin.",
+    "testing_attributes": "All interactive elements, buttons, and forms MUST include a 'data-testid' attribute (e.g., data-testid='donate-button')."
+  }
+}

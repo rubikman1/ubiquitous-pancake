@@ -1,0 +1,46 @@
+{
+  "summary": "Backend-only testing for Beyond The Blades foundation API. 17/18 pytest tests passed. All validation, CRUD, Stripe checkout creation, MongoDB no-_id-leak, and donation package enumeration work correctly. Single failure on /api/donations/status/{session_id} is due to an upstream Stripe error ('No such checkout.session') with the shared test key sk_test_emergent — not a server bug.",
+  "backend_issues": {
+    "critical": [],
+    "minor": [
+      {
+        "endpoint": "GET /api/donations/status/{session_id}",
+        "issue": "After creating a checkout session successfully, immediate status retrieval fails with Stripe API error 'No such checkout.session: cs_test_...'. Server maps this to HTTP 502. Transaction record with payment_status='initiated' IS created correctly in MongoDB (verified indirectly). Likely caused by emergentintegrations StripeCheckout library or the shared sk_test_emergent key routing creation and retrieval to different Stripe accounts. Real user flow (Stripe redirects user → webhook fires) is not affected because webhook path updates the record without calling get_checkout_status."
+      }
+    ]
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_backend_api.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "Investigate why StripeCheckout.get_checkout_status() returns 'No such checkout.session' immediately after create_checkout_session() succeeds with sk_test_emergent. Consider: (a) adding a small retry/delay in /donations/status/{session_id}, (b) falling back to the stored DB record if Stripe returns not-found, or (c) verify the emergentintegrations library uses the same API key for create and retrieve. Front-end polling on /donate/success page will currently show 502 until Stripe webhook finalizes the record."
+  ],
+  "critical_code_review_comments": [
+    "server.py uses @app.on_event('shutdown') which is deprecated in FastAPI; prefer lifespan context manager.",
+    "webhook endpoint calls _get_stripe which relies on request.base_url — in production with proxy, base_url may not match the public URL unless trust_proxy/forwarded-headers middleware is enabled. Stripe webhook_url must match what was registered; for now it's constructed per-request which is fine but fragile.",
+    "In /donations/checkout, when only custom_amount is provided, DONATION_PACKAGES is bypassed (correct), but metadata['package_id'] becomes 'custom' — consistent. Good.",
+    "EmailStr serialization: emitted as str in responses OK (pydantic v2 handles).",
+    "No rate limiting on public POST endpoints (volunteers, contact, activity-signups) — spam risk. Consider adding throttling.",
+    "CORS set to '*' with allow_credentials=True — browsers will reject; not urgent since app uses Bearer-less public API.",
+    "Single-file server.py is small (~320 lines) so splitting is not required yet."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_backend_api.py"
+  ],
+  "success_rate": {
+    "backend": "94% (17/18)",
+    "frontend": "not tested (skipped per request)"
+  },
+  "test_credentials": "N/A (no auth required for tested endpoints). Stripe: sk_test_emergent in backend/.env.",
+  "seed_data_creation": "Created test records with prefix 'TEST_' in volunteers, activity_signups, contact_messages, and payment_transactions collections. Not cleaned up (no delete endpoints exist).",
+  "retest_needed": true,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Use /app/backend/tests/test_backend_api.py as regression suite. The only failure is TestCheckout::test_status_champion — caused by upstream Stripe 'No such checkout.session' error. If the main agent adds retry/fallback logic in /api/donations/status/{session_id}, this test should start passing. All validation (422), business-rule (400), and MongoDB _id exclusion assertions pass. No frontend testing performed — request explicitly scoped backend-only.",
+  "rca of the issue": "RCA for status-check failure: (1) POST /api/donations/checkout creates Stripe session via emergentintegrations.StripeCheckout.create_checkout_session → returns valid session_id starting cs_test_. (2) Record inserted into payment_transactions with payment_status='initiated'. (3) Immediate GET /api/donations/status/{session_id} calls StripeCheckout.get_checkout_status(session_id) which hits Stripe API and receives 'No such checkout.session'. (4) Exception is caught and re-raised as HTTP 502. Reproduction: POST /api/donations/checkout with {package_id:'champion', origin_url:<any>}; immediately GET /api/donations/status/<returned session_id>. Expected 200, got 502. Mitigation options: (a) on Stripe not-found, return the stored DB record with payment_status='initiated' instead of 502; (b) retry with 1-2s backoff before failing; (c) verify emergentintegrations uses the same sk_test key for create and retrieve paths."
+}
