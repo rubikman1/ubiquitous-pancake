@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ubiquitous-pancake/static/css/main.3d951f52.css",
+    "main.js": "/ubiquitous-pancake/static/js/main.f8c141fa.js",
+    "index.html": "/ubiquitous-pancake/index.html",
+    "main.3d951f52.css.map": "/ubiquitous-pancake/static/css/main.3d951f52.css.map",
+    "main.f8c141fa.js.map": "/ubiquitous-pancake/static/js/main.f8c141fa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3d951f52.css",
+    "static/js/main.f8c141fa.js"
+  ]
+}
