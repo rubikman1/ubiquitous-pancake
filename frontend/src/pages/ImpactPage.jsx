@@ -1,9 +1,5 @@
 import { Quote, TrendingUp, Users, Smile, Calendar } from "lucide-react";
 
-const IMG = {
-  hiking: "https://images.unsplash.com/photo-1762376303818-04b067ce452d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwxfHxwZW9wbGUlMjBoaWtpbmclMjBzdW5ueSUyMG91dGRvb3JzfGVufDB8fHx8MTc3NzAzMjAzMHww&ixlib=rb-4.1.0&q=85",
-};
-
 const stats = [
   { icon: Users, value: "75+", label: "Young people served", tone: "blue" },
   { icon: Calendar, value: "30+", label: "Sessions run this year", tone: "sky" },
@@ -90,7 +86,7 @@ export default function ImpactPage() {
           </div>
           <div className="relative">
             <div className="rounded-[2rem] overflow-hidden card-soft aspect-[4/5]">
-              <img src="/group.png" alt="A supportive hike on a scenic trail" className="h-full w-full object-cover" />
+              <img src={process.env.PUBLIC_URL + "/group.png"} alt="A supportive hike on a scenic trail" className="h-full w-full object-cover" />
             </div>
             <div className="absolute -bottom-6 left-6 right-6 bg-white rounded-2xl p-5 border border-slate-100 card-soft">
               <p className="text-sm text-slate-500">From our Winter Badminton session</p>

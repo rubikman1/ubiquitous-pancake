@@ -70,17 +70,17 @@ export default function HomePage() {
             <div className="relative anim-fade-up delay-200">
               <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden card-soft">
                 <img
-                  src="/activity3.png"
+                  src={process.env.PUBLIC_URL + "/activity3.png"}
                   alt="Young players learning hockey together"
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-slate-900/0 to-transparent" />
               </div>
               <div className="absolute -bottom-8 -left-6 w-44 rounded-3xl overflow-hidden border-4 border-white card-soft hidden sm:block">
-                <img src="/activity1.png" alt="Badminton practice" className="h-36 w-full object-cover" />
+                <img src={process.env.PUBLIC_URL + "/activity1.png"} alt="Badminton practice" className="h-36 w-full object-cover" />
               </div>
               <div className="absolute -top-6 -right-4 w-40 rounded-3xl overflow-hidden border-4 border-white card-soft hidden sm:block">
-                <img src="/activity2.png" alt="Guided hike" className="h-32 w-full object-cover" />
+                <img src={process.env.PUBLIC_URL + "/activity2.png"} alt="Guided hike" className="h-32 w-full object-cover" />
               </div>
               <div className="absolute -bottom-4 right-4 bg-white rounded-2xl px-4 py-3 card-soft border border-slate-100 hidden md:flex items-center gap-3">
                 <div className="h-9 w-9 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center">

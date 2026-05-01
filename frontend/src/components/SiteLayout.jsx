@@ -21,7 +21,7 @@ function BrandMark() {
       </div> */}
       <div className="relative h-14 w-14 rounded-2xl overflow-hidden shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform">
         <img
-          src="/logo3.png"
+          src={process.env.PUBLIC_URL + "/logo3.png"}
           alt="Beyond The Blades logo"
           className="h-full w-full object-cover"
          />
@@ -188,7 +188,7 @@ function SiteFooter() {
             </div> */}
             <div className="relative h-8 w-8 rounded-2xl overflow-hidden shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform">
               <img
-                src="/logo3.png"
+                src={process.env.PUBLIC_URL + "/logo3.png"}
                 alt="Beyond The Blades logo"
                 className="h-full w-full object-cover"
               />

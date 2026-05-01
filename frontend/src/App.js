@@ -1,12 +1,12 @@
-import "@/App.css";
+import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Toaster } from "@/components/ui/sonner";
-import SiteLayout from "@/components/SiteLayout";
-import HomePage from "@/pages/HomePage";
-import AboutPage from "@/pages/AboutPage";
-import ImpactPage from "@/pages/ImpactPage";
-import GetInvolvedPage from "@/pages/GetInvolvedPage";
-import DonateSuccessPage from "@/pages/DonateSuccessPage";
+import { Toaster } from "sonner";
+import SiteLayout from "./components/SiteLayout";
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import ImpactPage from "./pages/ImpactPage";
+import GetInvolvedPage from "./pages/GetInvolvedPage";
+import DonateSuccessPage from "./pages/DonateSuccessPage";
 
 function App() {
   return (

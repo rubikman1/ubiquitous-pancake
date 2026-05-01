@@ -29,7 +29,7 @@ export default function AboutPage() {
           </div>
           <div className="relative anim-fade-up delay-200">
             <div className="rounded-[2rem] overflow-hidden card-soft aspect-[5/4]">
-              <img src="/volunteer.png" alt="Community volunteers supporting participants" className="h-full w-full object-cover" />
+              <img src={process.env.PUBLIC_URL + "/volunteer.png"} alt="Community volunteers supporting participants" className="h-full w-full object-cover" />
             </div>
           </div>
         </div>
