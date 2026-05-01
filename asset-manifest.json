@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/ubiquitous-pancake/static/css/main.3d951f52.css",
-    "main.js": "/ubiquitous-pancake/static/js/main.c20ce396.js",
+    "main.js": "/ubiquitous-pancake/static/js/main.c15ff31f.js",
     "index.html": "/ubiquitous-pancake/index.html",
     "main.3d951f52.css.map": "/ubiquitous-pancake/static/css/main.3d951f52.css.map",
-    "main.c20ce396.js.map": "/ubiquitous-pancake/static/js/main.c20ce396.js.map"
+    "main.c15ff31f.js.map": "/ubiquitous-pancake/static/js/main.c15ff31f.js.map"
   },
   "entrypoints": [
     "static/css/main.3d951f52.css",
-    "static/js/main.c20ce396.js"
+    "static/js/main.c15ff31f.js"
   ]
 }
